@@ -44,7 +44,7 @@ const getUserData = async (req, res) => {
 
 const verUsuarios = async (req, res) => {
   try {
-    const { tipo } = eq.user.tipo;
+    const { tipo } = req.user.tipo;
     if (tipo !== "admin") {
       return res.status(400).json({
         mensaje: "Error",
