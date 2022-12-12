@@ -31,6 +31,11 @@ const UserSchema = new mongoose.Schema(
     password: {
       type: String,
     },
+    tipo: {
+      type: String,
+      enum: ["cliente", "admin"],
+      default: "cliente",
+    },
     salt: {
       type: String,
     },
