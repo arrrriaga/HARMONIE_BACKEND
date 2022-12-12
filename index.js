@@ -16,7 +16,7 @@ app.use("v1", router);
 //! Static Server ?
 
 app.use((req, res) => {
-  res.send(`<a href="/v1">Regresa a la API </a>`);
+  res.send('<a href="/v1">Bienvenito: CLICK PARA IR A LA API V1.2</a>');
 });
 
 app.listen(process.env.PORT, () => {
