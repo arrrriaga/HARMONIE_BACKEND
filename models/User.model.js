@@ -17,18 +17,17 @@ const UserSchema = new mongoose.Schema(
     apellido: {
       type: String,
     },
+    edad: {
+      type: Number,
+      min: [18, "Tienes que ser mayor de edad."],
+      max: [100, "Superaste el rango de edad."],
+    },
     correo: {
       type: String,
       required: true,
       unique: true,
       match: [/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/, "Email inválido"],
     },
-    edad: {
-      type: Number,
-      min: [18, "Tienes que ser mayor de edad."],
-      max: [100, "Superaste el rango de edad."],
-    },
-
     password: {
       type: String,
     },

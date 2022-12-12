@@ -37,7 +37,7 @@ const ProductoSchema = new mongoose.Schema(
   }
 );
 
-UserSchema.plugin(uniqueValidator);
+ProductoSchema.plugin(uniqueValidator);
 
 //! 3.- Exportar modelo
 mongoose.model("Producto", ProductoSchema, "coleccionProductos");
