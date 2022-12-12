@@ -44,10 +44,11 @@ const getUserData = async (req, res) => {
 
 const verUsuarios = async (req, res) => {
   try {
-    if (req.user.tipo !== "admin") {
+    const { tipo } = eq.user.tipo;
+    if (tipo !== "admin") {
       return res.status(400).json({
         mensaje: "Error",
-        detalles: "No tienes permiso para ver esto",
+        detalles: `No tienes permiso para ver esto, tu tipo de usuario es: ${tipo}`,
       });
     }
     const usuarios = await User.find(
@@ -195,12 +196,10 @@ const verInfoUsuario = async (req, res) => {
       .status(200)
       .json({ mensaje: "Usuario encontrado", detalles: usuarioInfo });
   } catch (e) {
-    return res
-      .status(400)
-      .json({
-        mensaje: "Error",
-        detalles: "Error en verInfoUsuario: User.controller",
-      });
+    return res.status(400).json({
+      mensaje: "Error",
+      detalles: "Error en verInfoUsuario: User.controller",
+    });
   }
 };
 
