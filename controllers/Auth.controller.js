@@ -21,10 +21,11 @@ const registro = async (req, res) => {
       detalles: user.onSingGenerateJWT(),
     });
   } catch (e) {
-    console.log("Error en registro: Auth.controller");
-    return res
-      .status(500)
-      .json({ msj: "ERROR", detalles: "Error en registro: Auth.controller" });
+    console.log("Error en registro: Auth.controller: ", e.message);
+    return res.status(500).json({
+      msj: "ERROR",
+      detalles: `Error en registro: Auth.controller: ${e.message}`,
+    });
   }
 };
 //POST
