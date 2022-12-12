@@ -35,7 +35,7 @@ const login = async (req, res) => {
     const { correo, password } = req.body;
 
     //Buscamos al usuario y validamos si existe
-    const user = await findOne({ correo });
+    const user = await User.findOne({ correo });
     if (!user) {
       return res
         .status(404)
