@@ -4,7 +4,7 @@ const router = express.Router();
 const { registro, login } = require("../controllers");
 const upload = require("../middleware/upload");
 
-router.post("/registro", upload.single("picture"), registro);
-router.post("/login", login);
+router.post("/registro", registro);
+router.post("/login", upload.single("picture"), login);
 
 module.exports = router;
