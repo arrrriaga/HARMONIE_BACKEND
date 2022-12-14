@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 
 const UserSchema = new mongoose.Schema(
   {
-    img: {
+    picture: {
       type: String,
       default:
         "https://images.assetsdelivery.com/compings_v2/thesomeday123/thesomeday1231709/thesomeday123170900021.jpg",
