@@ -9,13 +9,13 @@ const getUserData = async (req, res) => {
       const user = correo
         ? await User.findOne(
             { correo: correo },
-            { correo: 1, apellido: 1, edad: 1, picture: 1 }
+            { correo: 1, apellido: 1, edad: 1, img: 1 }
           )
         : await User.findById(req.user.userId, {
             correo: 1,
             apellido: 1,
             edad: 1,
-            picture: 1,
+            img: 1,
           });
       if (!user) {
         return res.status(404).json({
@@ -59,7 +59,7 @@ const verUsuarios = async (req, res) => {
         correo: true,
         edad: true,
         tipo: true,
-        picture: true,
+        img: true,
       }
     );
     if (!usuarios.length)
@@ -185,7 +185,7 @@ const verInfoUsuario = async (req, res) => {
       correo: 1,
       tipo: 1,
       edad: 1,
-      picture: 1,
+      img: 1,
       apellido: 1,
     });
     if (!usuarioInfo)
