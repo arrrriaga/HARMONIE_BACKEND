@@ -1,14 +1,5 @@
 const { registro, login } = require("./Auth.controller");
-const {
-  getUserData,
-  verUsuarios,
-  verUsuario,
-  filtrarUsuarios,
-  eliminarUsuarioPorId,
-  eliminarUsuariosPorFiltro,
-  actualizarUsuario,
-  verInfoUsuario,
-} = require("./User.controller");
+const { geMyData } = require("./User.controller");
 
 const {
   nuevoProducto,
@@ -21,14 +12,7 @@ const {
 module.exports = {
   registro,
   login,
-  getUserData,
-  verUsuarios,
-  verUsuario,
-  filtrarUsuarios,
-  eliminarUsuarioPorId,
-  eliminarUsuariosPorFiltro,
-  actualizarUsuario,
-  verInfoUsuario,
+  geMyData,
   nuevoProducto,
   verProductos,
   verMisProductos,
