@@ -1,5 +1,5 @@
 const { registro, login } = require("./Auth.controller");
-const { geMyData } = require("./User.controller");
+const { getMyData } = require("./User.controller");
 
 const {
   nuevoProducto,
@@ -12,7 +12,7 @@ const {
 module.exports = {
   registro,
   login,
-  geMyData,
+  getMyData,
   nuevoProducto,
   verProductos,
   verMisProductos,

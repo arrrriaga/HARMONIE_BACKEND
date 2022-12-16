@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const User = mongoose.model("User");
 
-const geMyData = async (req, res) => {
+const getMyData = async (req, res) => {
   try {
     const usuarioInfo = await User.findById(req.user.idUser, {
       nombre: 1,
@@ -25,5 +25,5 @@ const geMyData = async (req, res) => {
 };
 
 module.exports = {
-  geMyData,
+  getMyData,
 };
