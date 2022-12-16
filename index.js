@@ -9,8 +9,8 @@ mongoose.connect(process.env.MONGO_URI); //! Conectamos mongoose
 
 //! instanciamos express, express-json, cors y router
 const app = express();
-app.use(express.json());
 app.use(cors());
+app.use(express.json());
 app.use("/v1", router);
 
 //! Static Server ?
