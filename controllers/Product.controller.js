@@ -29,45 +29,42 @@ const nuevoProducto = async (req, res) => {
 
 const verProductos = async (req, res) => {
   try {
-    // const productos = await Producto.find().populate("uploader");
     const productos = await Producto.find().populate("uploader", "nombre");
-    /* const productos = await Producto.find().populate({
-        path: "uploader",
-        select: {
-          nombre: true,
-          tipo: true,
-        },
-        populate: {
-          path: "tipo",
-          select: {
-            nombre: true,
-          },
-        },
-      }).populate({
-        path: "otra",
-        select: {
-          nombre: true,
-          tipo: true,
-        },
-        populate: {
-          path: "tipo",
-          select: {
-            nombre: true,
-          },
-        },
-      }); */
+
     if (!productos.length)
       return res
         .status(404)
         .json({ mensaje: "Error", detalles: "Colección vacía" });
     return res
       .status(200)
-      .json({ mensaje: "productos encontradas", detalles: productos });
+      .json({ mensaje: "productos encontrados", detalles: productos });
   } catch (e) {
     return res.status(400).json({ mensaje: "Error", detalles: e.message });
   }
 };
 
+const verOneProduct = async (req, res) => {
+  try {
+    const { id } = req.params;
+    if (id.length !== 24)
+      return res
+        .status(400)
+        .json({ mensaje: "Error", detalles: "ID no válido" });
+    const producto = await Producto.findById(id);
+    if (!producto)
+      return res
+        .status(404)
+        .json({ mensaje: "Error", detalles: "Producto no encontrado" });
+    return res
+      .status(200)
+      .json({ mensaje: "Producto Encontrado", detalles: producto });
+  } catch (e) {
+    return res.status(400).json({
+      mensaje: "Error",
+      detalles: "Error en verOneProduct: Product.controller",
+    });
+  }
+};
 const verMisProductos = async (req, res) => {
   try {
     if (req.user.tipo !== "admin") {
@@ -143,6 +140,7 @@ const actualizarProducto = async (req, res) => {
 module.exports = {
   nuevoProducto,
   verProductos,
+  verOneProduct,
   verMisProductos,
   eliminarProductoPorId,
   actualizarProducto,

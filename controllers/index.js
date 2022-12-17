@@ -4,6 +4,7 @@ const { getMyData } = require("./User.controller");
 const {
   nuevoProducto,
   verProductos,
+  verOneProduct,
   verMisProductos,
   eliminarProductoPorId,
   actualizarProducto,
@@ -15,6 +16,7 @@ module.exports = {
   getMyData,
   nuevoProducto,
   verProductos,
+  verOneProduct,
   verMisProductos,
   eliminarProductoPorId,
   actualizarProducto,

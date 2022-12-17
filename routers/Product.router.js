@@ -5,6 +5,7 @@ const auth = require("../middleware/auth");
 const {
   nuevoProducto,
   verProductos,
+  verOneProduct,
   verMisProductos,
   eliminarProductoPorId,
   actualizarProducto,
@@ -12,6 +13,7 @@ const {
 
 router.post("/", auth, nuevoProducto);
 router.get("/getAll", auth, verProductos);
+router.get("/getOne/:id", auth, verOneProduct);
 router.get("/misProductos", auth, verMisProductos);
 router.delete("/:id", auth, eliminarProductoPorId);
 router.put("/:id", auth, actualizarProducto);
