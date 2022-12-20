@@ -28,6 +28,19 @@ const UserSchema = new mongoose.Schema(
       unique: true,
       match: [/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/, "Email inválido"],
     },
+    ciudad: {
+      type: String,
+      required: true,
+    },
+    adress: {
+      type: String,
+      required: true,
+    },
+    CP: {
+      type: Number,
+      required: true,
+    },
+
     password: {
       type: String,
     },
