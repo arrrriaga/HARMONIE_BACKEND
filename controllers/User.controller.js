@@ -10,6 +10,9 @@ const getMyData = async (req, res) => {
       edad: 1,
       img: 1,
       apellido: 1,
+      ciudad: 1,
+      adress: 1,
+      CP: 1,
     });
 
     if (!usuarioInfo)
