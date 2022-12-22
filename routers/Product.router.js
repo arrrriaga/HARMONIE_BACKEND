@@ -12,8 +12,8 @@ const {
 } = require("../controllers");
 
 router.post("/", auth, nuevoProducto);
-router.get("/getAll", auth, verProductos);
-router.get("/getOne/:id", auth, verOneProduct);
+router.get("/getAll", verProductos);
+router.get("/getOne/:id", verOneProduct);
 router.get("/misProductos", auth, verMisProductos);
 router.delete("/:id", auth, eliminarProductoPorId);
 router.put("/:id", auth, actualizarProducto);
